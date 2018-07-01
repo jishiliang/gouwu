@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE struts PUBLIC  
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"  
+    "http://struts.apache.org/dtds/struts-2.3.dtd">  
+      
+<struts>  
+    <constant name="struts.i18n.encoding" value="UTF-8" />  
+    <constant name="struts.action.extension" value="action" />  
+	
+	
+	<package name="ebuy" namespace="/" extends="struts-default">  
+         <action name="product_*" class="productAction" method="{1}">
+         	<result name="success" >/WEB-INF/view/product/productMain.jsp</result>
+         	
+         	<result name="toProductManageView" >/WEB-INF/admin/productManage.jsp</result>
+         </action>
+         <action name="bigType_*" class="bigTypeAction" method="{1}">
+         	
+         </action>
+         <action name="notice_*" class="noticeAction" method="{1}">
+         	<result name="detail" >/WEB-INF/view/notice/noticeMain.jsp</result>
+         </action>
+         <action name="news_*" class="newsAction" method="{1}">
+         	<result name="detail" >/WEB-INF/view/news/newsMain.jsp</result>
+         </action>
+         <action name="user_*" class="userAction" method="{1}">
+         	<result name="toRegisterView" >/WEB-INF/view/user/register.jsp</result>
+         	<result name="toLoginView" >/WEB-INF/view/user/login.jsp</result>
+         	<result name="register_success" >/WEB-INF/view/user/reg-result.jsp</result>
+         	<result name="error" >/WEB-INF/view/user/login.jsp</result>
+         	<result name="login" >/WEB-INF/view/index.jsp</result> 
+         	<!-- 默认转发，地址栏不变，仍在action处 -->
+         	<result name="logout" type="redirect" >index.jsp</result>
+         	<result name="userCenter">/WEB-INF/view/user/uCenter.jsp</result>
+         	
+         	<result name="toUManageView">/WEB-INF/admin/uManage.jsp</result>
+         	<result name="adminError">/WEB-INF/admin/login.jsp</result>
+         	<result name="adminLogin">/WEB-INF/admin/main.jsp</result>
+         </action>
+         <action name="comment_*" class="commentAction" method="{1}">
+         	<result name="success" >/WEB-INF/view/comment/comment.jsp</result>
+         	<result name="save" type="redirectAction">comment_list.action</result>
+         </action>
+         <action name="shopping_*" class="shoppingAction" method="{1}">
+         	<result name="success" >/WEB-INF/view/shopping/shoppingMain.jsp</result>
+         	<result name="delete" type="redirectAction" >shopping_list.action</result>
+         </action>
+         <action name="order_*" class="orderAction" method="{1}">
+         	<result name="success" >/WEB-INF/view/shopping/shoppingMain.jsp</result>
+         	<result name="orderList" >/WEB-INF/view/user/uCenter.jsp</result>
+         </action>
+    </package>  
+   
+</struts>   
